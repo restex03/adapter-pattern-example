@@ -2,7 +2,7 @@ using System.Data;
 
 namespace Revision1;
 
-public class IPhone {
+public sealed class IPhone {
 
     public bool IsConnected { get; private set; } = false;
     public bool IsCharging { get; private set; } = false;

@@ -1,38 +1,29 @@
-﻿
-using WikipediaAdapterExample;
-using Revision1;
+﻿using Revision1;
+using Revision2;
 
 public class Program {
 	public static void Main()
 	{
-		// RunWikipediaAdapterExample();
-		RunRevision1();
+		// RunRevision1();
+		RunRevision2();
+	}
+
+	public static void RunRevision2() {
+
 	}
 
 	public static void RunRevision1() {
 	
 		var iPhone = new Revision1.IPhone();
-		var iPhoneConnection = new LightningConnection(iPhone);
+		var iPhoneConnection = new Revision1.LightningConnection(iPhone);
 
 		var androidDevice = new Revision1.AndroidPhone();
 		var usbcConnection = new Revision1.UsbcConnection(androidDevice);
 
-		var legacyDevice = new LegacyDevice();
-		var microUsbConnection = new Revision1.LegacyMicroUsbConnection(legacyDevice);
-
-		var charger = new Mighty3WayLightningMicroUsbCCharger(iPhoneConnection, microUsbConnection, usbcConnection);
+		var charger = new Revision1.Mighty3WayLightningMicroUsbCCharger(iPhoneConnection, usbcConnection);
 		charger.Charge();
 
 	}
 
-
-	public static void RunWikipediaAdapterExample() {
-		Console.WriteLine("Running Adapter Pattern project...");
-        
-        ILightningPhone applePhone = new ApplePhone();
-		IUsbPhone adapterCable = new LightningToUsbAdapter(applePhone);
-		adapterCable.ConnectUsb();
-		adapterCable.Recharge();
-	}
 }
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "K6BfLG7ps/XI6Uy5OrXJNdIBfBDTOmsmg5R9e4DZCZxSqBVNcg/RQuN5wXAhVliJkhMvY+FdWk1sJj73v8zphw==",
+  "dgSpecHash": "L80EUiwiEfx8kQ31N8A7/jiV+B/sW/xA3jJeBxj7Zypg+/Nz3NAAmEUtUfEWzrQrrJ3CmhNmZfqZ7O0F7xHT2g==",
   "success": true,
-  "projectFilePath": "C:\\Repos\\Patterns\\Adapter\\Adapter.csproj",
+  "projectFilePath": "C:\\Repos\\Patterns\\adapter-pattern-kata\\Adapter.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

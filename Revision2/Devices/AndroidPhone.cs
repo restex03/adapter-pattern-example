@@ -1,8 +1,8 @@
 using System.Data;
 
-namespace Revision1;
+namespace Revision2.Devices;
 
-public sealed class AndroidPhone {
+public class AndroidPhone {
 
     public bool IsConnected { get; private set; } = false;
     public bool IsCharging { get; private set; } = false;

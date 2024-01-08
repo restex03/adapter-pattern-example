@@ -1,10 +1,10 @@
 using System.Data;
 
-namespace Revision1 {
-    public sealed class LegacyDevice {
+namespace Revision2.Devices;
+public class LegacyDevice {
 
-        public bool IsConnected { get; private set; } = false;
-        public bool IsCharging { get; private set; } = false;
+    public bool IsConnected { get; private set; } = false;
+    public bool IsCharging { get; private set; } = false;
 
 
     public void EstablishConnection() {
@@ -17,5 +17,5 @@ namespace Revision1 {
         this.IsCharging = true;
     }
 
-    }
 }
+

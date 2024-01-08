@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Repos\\Patterns\\Adapter\\Adapter.csproj": {}
+    "C:\\Repos\\Patterns\\adapter-pattern-kata\\Adapter.csproj": {}
   },
   "projects": {
-    "C:\\Repos\\Patterns\\Adapter\\Adapter.csproj": {
+    "C:\\Repos\\Patterns\\adapter-pattern-kata\\Adapter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Repos\\Patterns\\Adapter\\Adapter.csproj",
+        "projectUniqueName": "C:\\Repos\\Patterns\\adapter-pattern-kata\\Adapter.csproj",
         "projectName": "Adapter",
-        "projectPath": "C:\\Repos\\Patterns\\Adapter\\Adapter.csproj",
+        "projectPath": "C:\\Repos\\Patterns\\adapter-pattern-kata\\Adapter.csproj",
         "packagesPath": "C:\\Users\\estex\\.nuget\\packages\\",
-        "outputPath": "C:\\Repos\\Patterns\\Adapter\\obj\\",
+        "outputPath": "C:\\Repos\\Patterns\\adapter-pattern-kata\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

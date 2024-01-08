@@ -1,20 +1,19 @@
 using System.Data;
+namespace Revision2.Devices;
 
-namespace Revision1;
-
-public sealed class AndroidPhone {
+public class IPhone {
 
     public bool IsConnected { get; private set; } = false;
     public bool IsCharging { get; private set; } = false;
 
 
     public void EstablishConnection() {
-        Console.WriteLine($"{nameof(AndroidPhone)} connected.");
+        Console.WriteLine($"{nameof(IPhone)} connected.");
         this.IsConnected = true;
     }
 
     public void Recharge() {
-        Console.WriteLine($"{nameof(AndroidPhone)} charging.");
+        Console.WriteLine($"{nameof(IPhone)} charging.");
         this.IsCharging = true;
     }
 

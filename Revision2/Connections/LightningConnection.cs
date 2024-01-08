@@ -1,4 +1,6 @@
-namespace Revision1;
+using Revision2.Devices;
+
+namespace Revision2.Connections;
 
 public class LightningConnection {
     private IPhone Device { get; set; }
@@ -8,7 +10,7 @@ public class LightningConnection {
         this.Device.EstablishConnection();
     }
 
-    public void Recharge() {
+    public void RechargeLightning() {
             if (this.Device is null || !this.Device.IsConnected) {
                 Console.WriteLine("Please connect a device to begin recharging.");
                 return;

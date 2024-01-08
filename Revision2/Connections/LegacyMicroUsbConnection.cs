@@ -1,4 +1,6 @@
-namespace Revision1;
+using Revision2.Devices;
+
+namespace Revision2.Connections;
 
 public class LegacyMicroUsbConnection {
     private LegacyDevice Device { get; set; }
@@ -16,9 +18,5 @@ public class LegacyMicroUsbConnection {
 
         this.Device.LegacyRecharge();
     } 
-
-    public bool IsCharging() {
-        return this.Device.IsCharging;
-    }
 
 }
