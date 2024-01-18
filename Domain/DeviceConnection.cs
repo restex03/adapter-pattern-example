@@ -1,16 +1,14 @@
-using Revision2.Devices;
+namespace Domain;
 
-namespace Revision2.Connections;
+public sealed class DeviceConnection {
+    private IDevice Device { get; set; }
 
-public class LightningConnection {
-    private IPhone Device { get; set; }
-
-    public LightningConnection(IPhone device) {
+    public DeviceConnection(IDevice device) {
         this.Device = device;
         this.Device.EstablishConnection();
     }
 
-    public void RechargeLightning() {
+    public void Recharge() {
             if (this.Device is null || !this.Device.IsConnected) {
                 Console.WriteLine("Please connect a device to begin recharging.");
                 return;

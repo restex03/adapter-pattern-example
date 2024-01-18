@@ -1,7 +1,8 @@
 using System.Data;
-namespace Revision2.Devices;
 
-public class IPhone {
+namespace Domain;
+
+public sealed class IPhone : IDevice {
 
     public bool IsConnected { get; private set; } = false;
     public bool IsCharging { get; private set; } = false;

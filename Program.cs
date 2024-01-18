@@ -1,43 +1,50 @@
-﻿using Revision1;
-using Revision2;
-using Revision2.Adapters;
+﻿using Domain;
+using Modifications.Adapters;
 
 public class Program {
 	public static void Main()
 	{
-		// RunRevision1();
-		RunRevision2();
+		ExistingImplementation();
+		AdapterImplementation_01();
+		
 	}
 
-	public static void RunRevision2() {
-		var iphone = new Revision2.Devices.IPhone();
-		var iphoneConnectionAdapter = new IPhoneConnectionAdapter(iphone);
+	public static void AdapterImplementation_01() {
+		Console.WriteLine($"Running {nameof(AdapterImplementation_01)}");
 
-		var android = new Revision2.Devices.AndroidPhone();
-		var AndroidConnectionAdapter = new AndroidConnectionAdapter(android);
+		var iphone = new IPhone();
+		var iPhoneConnection = new DeviceConnection(iphone);
 
-		var legacyDevice = new Revision2.Devices.LegacyDevice();
+		var android = new AndroidPhone();
+		var androidConnection = new DeviceConnection(android);
+
+		var legacyDevice = new LegacyDevice();
+		// Here is how this implementation uses an adapter
 		var legacyDeviceAdapter = new LegacyDeviceAdapter(legacyDevice);
+		var legacyConnection = new DeviceConnection(legacyDeviceAdapter);
 
-		var connections = new List<IConnectionAdapter>() {
-			iphoneConnectionAdapter,
-			AndroidConnectionAdapter,
-			legacyDeviceAdapter
+		var connections = new List<DeviceConnection>() {
+			iPhoneConnection,
+			androidConnection,
+			legacyConnection
 		};
-		var charger = new Revision2.Mighty3WayLightningMicroUsbCCharger(connections);
+		var charger = new Charger(connections);
 
 		charger.Charge();
 	}
 
-	public static void RunRevision1() {
-	
-		var iPhone = new Revision1.IPhone();
-		var iPhoneConnection = new Revision1.LightningConnection(iPhone);
+	public static void ExistingImplementation() {
+		Console.WriteLine($"Running {nameof(ExistingImplementation)}");
+		
+		var iPhone = new IPhone();
+		var androidDevice = new AndroidPhone();
 
-		var androidDevice = new Revision1.AndroidPhone();
-		var usbcConnection = new Revision1.UsbcConnection(androidDevice);
+		var connections = new List<DeviceConnection>() {
+			new DeviceConnection(iPhone),
+			new DeviceConnection(androidDevice)
+		};
 
-		var charger = new Revision1.Mighty3WayLightningMicroUsbCCharger(iPhoneConnection, usbcConnection);
+		var charger = new Charger(connections);
 		charger.Charge();
 
 	}
