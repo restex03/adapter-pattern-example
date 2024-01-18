@@ -1,6 +1,6 @@
 using Domain;
 
-namespace Modifications.Adapters;
+namespace Modifications.Adapters.Implementation_01;
 public class LegacyDeviceAdapter : IDevice
 {
     public bool IsConnected { get; private set;}

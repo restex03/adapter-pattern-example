@@ -1,5 +1,5 @@
 ﻿using Domain;
-using Modifications.Adapters;
+using Modifications.Adapters.Implementation_01;
 
 public class Program {
 	public static void Main()
@@ -10,7 +10,8 @@ public class Program {
 	}
 
 	public static void AdapterImplementation_01() {
-		Console.WriteLine($"Running {nameof(AdapterImplementation_01)}");
+		Console.WriteLine("\n\n * * * * * * * * * * * * * * * * *");
+		Console.WriteLine($"Running {nameof(AdapterImplementation_01)}()");
 
 		var iphone = new IPhone();
 		var iPhoneConnection = new DeviceConnection(iphone);
@@ -34,8 +35,9 @@ public class Program {
 	}
 
 	public static void ExistingImplementation() {
-		Console.WriteLine($"Running {nameof(ExistingImplementation)}");
-		
+		Console.WriteLine("\n\n * * * * * * * * * * * * * * * * *");
+		Console.WriteLine($"Running {nameof(ExistingImplementation)}()");
+
 		var iPhone = new IPhone();
 		var androidDevice = new AndroidPhone();
 
