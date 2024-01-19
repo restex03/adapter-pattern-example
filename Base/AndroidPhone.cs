@@ -1,6 +1,6 @@
 using System.Data;
 
-namespace Domain;
+namespace Base;
 
 public sealed class AndroidPhone : IDevice {
 

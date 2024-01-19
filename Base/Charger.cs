@@ -1,4 +1,4 @@
-namespace Domain;
+namespace Base;
 
 public sealed class Charger {
 

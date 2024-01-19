@@ -1,4 +1,4 @@
-namespace Domain;
+namespace Base;
 
 public interface IIncompatibleDevice {
     public void Connect();

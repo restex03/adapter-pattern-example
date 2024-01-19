@@ -3,56 +3,70 @@
 public class Program {
 	public static void Main()
 	{
-		ExistingImplementation();
-		AdapterImplementation_01();
-		
+		RunBaseImplementation();
+		RunAdapterImplementation_01();
+		RunWikipediaAdapterExample();
 	}
 
-	public static void AdapterImplementation_01() {
+	/// <summary>
+	/// Here you can see from a high-level how LegacyDeviceAdapter is used to include 
+	/// LegacyDevice in the list of DeviceConnection that is compatible with 
+	/// the Charger class. 
+	/// </summary>
+	public static void RunAdapterImplementation_01() {
 		Console.WriteLine("\n\n * * * * * * * * * * * * * * * * *");
-		Console.WriteLine($"Running {nameof(AdapterImplementation_01)}()");
+		Console.WriteLine($"Running {nameof(RunAdapterImplementation_01)}()");
 
-		var iphone = new Domain.IPhone();
-		var iPhoneConnection = new Domain.DeviceConnection(iphone);
+		var iphone = new Base.IPhone();
+		var iPhoneConnection = new Base.DeviceConnection(iphone);
 
-		var android = new Domain.AndroidPhone();
-		var androidConnection = new Domain.DeviceConnection(android);
+		var android = new Base.AndroidPhone();
+		var androidConnection = new Base.DeviceConnection(android);
 
-		var legacyDevice = new Domain.LegacyDevice();
+		var legacyDevice = new Base.LegacyDevice();
 		// Here is how this implementation uses an adapter
 		var legacyDeviceAdapter = new LegacyDeviceAdapter(legacyDevice);
-		var legacyConnection = new Domain.DeviceConnection(legacyDeviceAdapter);
+		var legacyConnection = new Base.DeviceConnection(legacyDeviceAdapter);
 
-		var connections = new List<Domain.DeviceConnection>() {
+		var connections = new List<Base.DeviceConnection>() {
 			iPhoneConnection,
 			androidConnection,
 			legacyConnection
 		};
-		var charger = new Domain.Charger(connections);
+		var charger = new Base.Charger(connections);
 
 		charger.Charge();
 	}
 
-	public static void ExistingImplementation() {
+
+	/// <summary>
+	/// See here the base implementation, where LegacyDevice cannot be used
+	/// since it is not compatible with the IDevice interface. 
+	/// </summary>
+	public static void RunBaseImplementation() {
 		Console.WriteLine("\n\n * * * * * * * * * * * * * * * * *");
-		Console.WriteLine($"Running {nameof(ExistingImplementation)}()");
+		Console.WriteLine($"Running {nameof(RunBaseImplementation)}()");
 
-		var iPhone = new Domain.IPhone();
-		var androidDevice = new Domain.AndroidPhone();
+		var iPhone = new Base.IPhone();
+		var androidDevice = new Base.AndroidPhone();
 
-		var connections = new List<Domain.DeviceConnection>() {
-			new Domain.DeviceConnection(iPhone),
-			new Domain.DeviceConnection(androidDevice)
+		var connections = new List<Base.DeviceConnection>() {
+			new Base.DeviceConnection(iPhone),
+			new Base.DeviceConnection(androidDevice)
 		};
 
-		var charger = new Domain.Charger(connections);
+		var charger = new Base.Charger(connections);
 		charger.Charge();
 
 	}
 
+	/// <summary>
+	/// Here is the example I found on Wikipedia at the time of writing. See 
+	/// readme.md for link. 
+	/// </summary>
 	public static void RunWikipediaAdapterExample() {
 		Console.WriteLine("\n\n * * * * * * * * * * * * * * * * *");
-		Console.WriteLine($"Running {nameof(ExistingImplementation)}()");
+		Console.WriteLine($"Running {nameof(RunBaseImplementation)}()");
         
         EnWikiEx.ILightningPhone applePhone = new EnWikiEx.ApplePhone();
 		EnWikiEx.IUsbPhone adapterCable = new EnWikiEx.LightningToUsbAdapter(applePhone);

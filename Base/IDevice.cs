@@ -1,4 +1,4 @@
-namespace Domain;
+namespace Base;
 
 public interface IDevice {
     public void EstablishConnection();

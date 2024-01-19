@@ -1,4 +1,4 @@
-using Domain;
+using Base;
 
 namespace Modifications.Adapters.Implementation_01;
 public class LegacyDeviceAdapter : IDevice
