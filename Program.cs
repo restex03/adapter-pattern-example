@@ -1,5 +1,4 @@
-﻿using Domain;
-using Modifications.Adapters.Implementation_01;
+﻿using Modifications.Adapters.Implementation_01;
 
 public class Program {
 	public static void Main()
@@ -13,23 +12,23 @@ public class Program {
 		Console.WriteLine("\n\n * * * * * * * * * * * * * * * * *");
 		Console.WriteLine($"Running {nameof(AdapterImplementation_01)}()");
 
-		var iphone = new IPhone();
-		var iPhoneConnection = new DeviceConnection(iphone);
+		var iphone = new Domain.IPhone();
+		var iPhoneConnection = new Domain.DeviceConnection(iphone);
 
-		var android = new AndroidPhone();
-		var androidConnection = new DeviceConnection(android);
+		var android = new Domain.AndroidPhone();
+		var androidConnection = new Domain.DeviceConnection(android);
 
-		var legacyDevice = new LegacyDevice();
+		var legacyDevice = new Domain.LegacyDevice();
 		// Here is how this implementation uses an adapter
 		var legacyDeviceAdapter = new LegacyDeviceAdapter(legacyDevice);
-		var legacyConnection = new DeviceConnection(legacyDeviceAdapter);
+		var legacyConnection = new Domain.DeviceConnection(legacyDeviceAdapter);
 
-		var connections = new List<DeviceConnection>() {
+		var connections = new List<Domain.DeviceConnection>() {
 			iPhoneConnection,
 			androidConnection,
 			legacyConnection
 		};
-		var charger = new Charger(connections);
+		var charger = new Domain.Charger(connections);
 
 		charger.Charge();
 	}
@@ -38,17 +37,27 @@ public class Program {
 		Console.WriteLine("\n\n * * * * * * * * * * * * * * * * *");
 		Console.WriteLine($"Running {nameof(ExistingImplementation)}()");
 
-		var iPhone = new IPhone();
-		var androidDevice = new AndroidPhone();
+		var iPhone = new Domain.IPhone();
+		var androidDevice = new Domain.AndroidPhone();
 
-		var connections = new List<DeviceConnection>() {
-			new DeviceConnection(iPhone),
-			new DeviceConnection(androidDevice)
+		var connections = new List<Domain.DeviceConnection>() {
+			new Domain.DeviceConnection(iPhone),
+			new Domain.DeviceConnection(androidDevice)
 		};
 
-		var charger = new Charger(connections);
+		var charger = new Domain.Charger(connections);
 		charger.Charge();
 
+	}
+
+	public static void RunWikipediaAdapterExample() {
+		Console.WriteLine("\n\n * * * * * * * * * * * * * * * * *");
+		Console.WriteLine($"Running {nameof(ExistingImplementation)}()");
+        
+        EnWikiEx.ILightningPhone applePhone = new EnWikiEx.ApplePhone();
+		EnWikiEx.IUsbPhone adapterCable = new EnWikiEx.LightningToUsbAdapter(applePhone);
+		adapterCable.ConnectUsb();
+		adapterCable.Recharge();
 	}
 
 }
