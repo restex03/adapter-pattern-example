@@ -1,6 +1,12 @@
 using Base;
 
 namespace Modifications.Adapters.Implementation_01;
+
+/// <summary>
+/// This class implements the Adapter Pattern to make LegacyDevice 
+/// compatible with the IDevice interface used by the IPhone 
+/// and AndroidPhone classes.
+/// </summary>
 public class LegacyDeviceAdapter : IDevice
 {
     public bool IsConnected { get; private set;}
