@@ -1,5 +1,10 @@
 # Adapter Pattern Examples
 
+### Summary
+The Adapter Pattern is a structural design pattern used to resolve differences in 
+incompatible interfaces. An adapter provides an existing tool with a new interface
+to make it useful in a new way. 
+
 ### Objective
 Understand how the Adapter pattern works using examples in C#.
 
